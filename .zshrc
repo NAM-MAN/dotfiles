@@ -5,8 +5,8 @@ export VISUAL="nvim"
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
-export PATH="/Users/yy/.antigravity/antigravity/bin:$PATH"
-export PATH="$PATH:/Users/yy/.lmstudio/bin"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
 alias pnpx='pnpm dlx'

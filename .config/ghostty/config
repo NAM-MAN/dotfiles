@@ -30,7 +30,7 @@ alpha-blending = linear-corrected
 split-divider-color = #3e4451
 
 # ── Working Directory ─────────────────────────────────────
-working-directory = /Users/yy/ws
+working-directory = ~/ws
 
 # ── macOS ───────────────────────────────────────────────────
 macos-titlebar-style = transparent
