@@ -5,6 +5,7 @@ export VISUAL="nvim"
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
+export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$HOME/.local/bin:$PATH"
