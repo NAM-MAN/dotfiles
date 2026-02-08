@@ -1,0 +1,104 @@
+# ── Atom One Dark theme for Yazi ─────────────────────────────
+# Matched to Ghostty one-dark-vivid palette
+
+[mode]
+normal_main = { bg = "#61afef", fg = "#282c34", bold = true }
+normal_alt  = { fg = "#61afef", bold = true }
+select_main = { bg = "#e5c07b", fg = "#282c34", bold = true }
+select_alt  = { fg = "#e5c07b", bold = true }
+unset_main  = { bg = "#e06c75", fg = "#282c34", bold = true }
+unset_alt   = { fg = "#e06c75", bold = true }
+
+[status]
+separator_open  = ""
+separator_close = ""
+overall         = { bg = "reset" }
+# Progress bar
+progress_label = { fg = "#abb2bf", bold = true }
+progress_normal = { fg = "#61afef", bg = "#3e4451" }
+progress_error  = { fg = "#e06c75", bg = "#3e4451" }
+# Permissions
+perm_read  = { fg = "#98c379" }
+perm_write = { fg = "#e06c75" }
+perm_exec  = { fg = "#61afef" }
+perm_sep   = { fg = "#5c6370" }
+
+[input]
+border = { fg = "#61afef" }
+title  = { fg = "#61afef" }
+value  = {}
+selected = { reversed = true }
+
+[confirm]
+border  = { fg = "#61afef" }
+title   = { fg = "#61afef" }
+content = {}
+list    = {}
+btn_yes = { bg = "#61afef", fg = "#282c34", bold = true }
+btn_no  = { bg = "#3e4451", fg = "#abb2bf" }
+btn_labels = [ "  [Y]es  ", "  (N)o  " ]
+
+[completion]
+border   = { fg = "#61afef" }
+active   = { bg = "#3e4451" }
+inactive = {}
+icon_file    = { fg = "#abb2bf" }
+icon_folder  = { fg = "#61afef" }
+icon_command  = { fg = "#98c379" }
+
+[tasks]
+border  = { fg = "#61afef" }
+title   = { fg = "#61afef" }
+hovered = { fg = "#c678dd", underline = true }
+
+[pick]
+border  = { fg = "#61afef" }
+active  = { fg = "#c678dd", bold = true }
+inactive = {}
+
+[which]
+cols = 3
+mask = { bg = "#1e2127" }
+cand = { fg = "#56b6c2" }
+rest = { fg = "#5c6370" }
+desc = { fg = "#c678dd" }
+separator = "  "
+separator_style = { fg = "#3e4451" }
+
+[notify]
+title_info  = { fg = "#98c379" }
+title_warn  = { fg = "#e5c07b" }
+title_error = { fg = "#e06c75" }
+icon_info   = ""
+icon_warn   = ""
+icon_error  = ""
+
+[filetype]
+
+rules = [
+	# Directories
+	{ name = "*/", fg = "#61afef", bold = true },
+
+	# Media
+	{ mime = "image/*", fg = "#c678dd" },
+	{ mime = "video/*", fg = "#c678dd" },
+	{ mime = "audio/*", fg = "#c678dd" },
+
+	# Archives
+	{ mime = "application/zip", fg = "#e06c75" },
+	{ mime = "application/gzip", fg = "#e06c75" },
+	{ mime = "application/x-tar", fg = "#e06c75" },
+	{ mime = "application/x-bzip2", fg = "#e06c75" },
+	{ mime = "application/x-xz", fg = "#e06c75" },
+	{ mime = "application/x-7z-compressed", fg = "#e06c75" },
+	{ mime = "application/x-rar", fg = "#e06c75" },
+
+	# Documents
+	{ mime = "application/pdf", fg = "#e5c07b" },
+	{ mime = "application/doc", fg = "#e5c07b" },
+
+	# Fallback
+	{ name = "*", fg = "#abb2bf" },
+]
+
+[icon]

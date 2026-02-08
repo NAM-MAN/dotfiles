@@ -1,0 +1,83 @@
+# ── Font ────────────────────────────────────────────────────
+font-family = "Hack Nerd Font Mono"
+font-family-bold = "Hack Nerd Font Mono"
+font-family-italic = "Hack Nerd Font Mono"
+font-family-bold-italic = "Hack Nerd Font Mono"
+font-size = 16
+font-thicken = true
+font-feature = liga
+font-feature = calt
+adjust-cell-height = 10%
+
+# ── Theme — One Dark Vivid (custom) ────────────────────────
+theme = one-dark-vivid
+
+# ── Window / Appearance ─────────────────────────────────────
+background-opacity = 0.93
+background-blur = 20
+unfocused-split-opacity = 0.75
+minimum-contrast = 1.1
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+window-padding-x = 8
+window-padding-y = 6
+window-padding-balance = true
+window-padding-color = extend
+window-colorspace = display-p3
+bold-is-bright = false
+alpha-blending = linear-corrected
+split-divider-color = #3e4451
+
+# ── Working Directory ─────────────────────────────────────
+working-directory = /Users/yy/ws
+
+# ── macOS ───────────────────────────────────────────────────
+macos-titlebar-style = transparent
+macos-option-as-alt = true
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+window-save-state = always
+
+# ── Clipboard ──────────────────────────────────────────────
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+copy-on-select = clipboard
+
+# ── Shell Integration ──────────────────────────────────────
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+
+# ── Keybinds ───────────────────────────────────────────────
+
+# Layer 1: ペイン移動 (Ctrl + hjkl)
+# performable: 移動先にペインがなければキーをアプリに透過（Neovim互換）
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+j=goto_split:bottom
+keybind = performable:ctrl+k=goto_split:top
+keybind = performable:ctrl+l=goto_split:right
+
+# Layer 2: ペイン作成 (Ctrl+Shift + hjkl)
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+l=new_split:right
+
+# レイアウト操作
+keybind = ctrl+shift+z=toggle_split_zoom
+keybind = ctrl+shift+e=equalize_splits
+keybind = super+t=new_tab
+keybind = super+w=close_surface
+keybind = super+equal=increase_font_size:1
+keybind = super+minus=decrease_font_size:1
+keybind = super+zero=reset_font_size
+keybind = super+shift+comma=reload_config
+
+# ── Claude Code 改行キー ──────────────────────────────────
+# Shift+Enter → 改行として送信 (Claude Code のデフォルト改行キー)
+keybind = shift+enter=text:\n
+
+# ── Quick Terminal ────────────────────────────────────────
+# Ctrl+M は Hammerspoon で通常ウィンドウのトグルに置き換え済み
+# （タブ・リサイズ・スプリット全対応）

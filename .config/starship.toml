@@ -1,0 +1,173 @@
+# One Dark Vivid — extended palette
+#   blue:#61afef  purple:#c678dd  green:#98c379  yellow:#e5c07b
+#   red:#e06c75   cyan:#56b6c2    orange:#d19a66  teal:#4a9fa8
+#   coral:#e87d6f rose:#d489e8    sage:#7ab35f    sky:#74b7f2
+
+format = """
+  $os\
+$directory\
+${custom.git_transition}\
+$git_branch\
+$git_status\
+$git_state\
+$git_metrics\
+${custom.non_git_closer}\
+$fill\
+$line_break\
+  $character"""
+
+right_format = """\
+$kubernetes\
+$docker_context\
+$aws\
+$gcloud\
+$nodejs\
+$bun\
+$python\
+$rust\
+$golang\
+$java\
+$package\
+$cmd_duration\
+$time"""
+
+[character]
+success_symbol = "[](bold #98c379)"
+error_symbol = "[](bold #e06c75)"
+vimcmd_symbol = "[](bold #e5c07b)"
+
+[fill]
+symbol = " "
+
+[line_break]
+disabled = false
+
+# ── Left: OS → Dir → (Git) → round cap ──────────────────────
+
+[os]
+disabled = false
+style = "bg:#61afef fg:#282c34 bold"
+format = "[ $symbol ]($style)[](fg:#61afef bg:#e5c07b)"
+
+[os.symbols]
+Macos = ""
+Linux = ""
+Windows = ""
+Ubuntu = ""
+Debian = ""
+Fedora = ""
+Arch = ""
+Alpine = ""
+
+[directory]
+truncation_length = 255
+truncate_to_repo = false
+truncation_symbol = "…/"
+style = "bg:#e5c07b fg:#282c34 bold"
+format = "[  $read_only$path ]($style)"
+read_only = " "
+home_symbol = "~"
+
+[directory.substitutions]
+"Documents" = ""
+"Downloads" = ""
+"Developer" = ""
+"ws" = ""
+
+# ── Conditional transition: dir→git or dir→round cap ─────────
+
+[custom.git_transition]
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
+format = "[](fg:#e5c07b bg:#c678dd)"
+shell = ["sh"]
+
+[custom.non_git_closer]
+when = "! git rev-parse --is-inside-work-tree 2>/dev/null"
+format = "[](fg:#e5c07b)"
+shell = ["sh"]
+
+# ── Git section (purple bg:#c678dd) ──────────────────────────
+
+[git_branch]
+format = "[  $branch(:$remote_branch) ]($style)"
+style = "bg:#c678dd fg:#282c34 bold"
+truncation_length = 24
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "bg:#c678dd fg:#282c34"
+conflicted = "=${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇡${ahead_count}⇣${behind_count} "
+untracked = "?${count} "
+stashed = "*${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+up_to_date = "✓ "
+
+[git_state]
+format = '([ $state( $progress_current/$progress_total) ]($style))'
+style = "bg:#c678dd fg:#e06c75 bold"
+
+[git_metrics]
+disabled = false
+format = "([+$added ]($added_style))([-$deleted ]($deleted_style))[](fg:#c678dd)"
+added_style = "bg:#c678dd fg:#282c34"
+deleted_style = "bg:#c678dd fg:#282c34"
+
+# ── Right: tab-style badges (◀ sharp left opener) ────────────
+
+[kubernetes]
+disabled = false
+format = '[](fg:#74b7f2)[ ⎈ $context(\($namespace\)) ](bg:#74b7f2 fg:#282c34 bold)'
+detect_env_vars = ["KUBECONFIG"]
+detect_extensions = []
+detect_files = []
+detect_folders = []
+
+[docker_context]
+format = "[](fg:#4a9fa8)[  $context ](bg:#4a9fa8 fg:#282c34 bold)"
+
+[aws]
+format = '[](fg:#d19a66)[  $profile(\($region\)) ](bg:#d19a66 fg:#282c34 bold)'
+
+[gcloud]
+format = '[](fg:#61afef)[  $active ](bg:#61afef fg:#282c34 bold)'
+
+[nodejs]
+format = "[](fg:#98c379)[  $version ](bg:#98c379 fg:#282c34 bold)"
+detect_extensions = []
+
+[bun]
+format = "[](fg:#d19a66)[  $version ](bg:#d19a66 fg:#282c34 bold)"
+
+[python]
+format = '[](fg:#56b6c2)[  ${version}(\($virtualenv\)) ](bg:#56b6c2 fg:#282c34 bold)'
+
+[rust]
+format = "[](fg:#e06c75)[  $version ](bg:#e06c75 fg:#282c34 bold)"
+
+[golang]
+format = "[](fg:#7ab35f)[  $version ](bg:#7ab35f fg:#282c34 bold)"
+
+[java]
+format = "[](fg:#e87d6f)[  $version ](bg:#e87d6f fg:#282c34 bold)"
+
+[package]
+format = "[](fg:#d489e8)[  $version ](bg:#d489e8 fg:#282c34 bold)"
+
+[cmd_duration]
+min_time = 2_000
+format = "[](fg:#e5c07b)[  $duration ](bg:#e5c07b fg:#282c34 bold)"
+show_notifications = false
+
+[time]
+disabled = false
+format = "[](fg:#3e4451)[  $time ](bg:#3e4451 fg:#abb2bf)"
+time_format = "%H:%M"
+
+[battery]
+disabled = true

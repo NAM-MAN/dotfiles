@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+
+# Nvim generated
+.config/nvim/lazy-lock.json
+
+# Secrets / local overrides (never commit)
+.zshrc.local
+.gitconfig.local

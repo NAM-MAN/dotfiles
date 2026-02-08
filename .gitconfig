@@ -1,0 +1,31 @@
+[user]
+	email = yhymmt123@gmail.com
+	name = Yohei Yamamoto
+[ghq]
+	root = ~/ws
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = OneHalfDark
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = blue box ul
+	minus-style = syntax "#3b1d22"
+	minus-emph-style = syntax "#5c2932"
+	plus-style = syntax "#1d2e24"
+	plus-emph-style = syntax "#2a4434"
+	line-numbers-minus-style = "#e06c75"
+	line-numbers-plus-style = "#98c379"
+	line-numbers-zero-style = "#5c6370"
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[include]
+	path = ~/.gitconfig.local
